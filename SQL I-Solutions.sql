@@ -15,6 +15,7 @@ A country is big if:
 
 it has an area of at least three million (i.e., 3000000 km2), or
 it has a population of at least twenty-five million (i.e., 25000000).
+
 Write an SQL query to report the name, population, and area of the big countries.
 Return the result table in any order.
 --
@@ -45,3 +46,23 @@ SELECT product_id
 FROM Products
 WHERE low_fats = 'Y' and recyclable = 'Y'
 ORDER BY product_id
+
+--
+3)
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
+| referee_id  | int     |
++-------------+---------+
+id is the primary key column for this table.
+Each row of this table indicates the id of a customer, their name, and the id of the customer who referred them.
+
+Write an SQL query to report the names of the customer that are not referred by the customer with id = 2.
+Return the result table in any order.
+--
+
+SELECT name
+FROM Customer
+WHERE referee_id <> 2 or referee_id is null
