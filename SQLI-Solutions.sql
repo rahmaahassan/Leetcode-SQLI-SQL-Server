@@ -233,6 +233,6 @@ Type I Diabetes always starts with DIAB1 prefix.
 Return the result table in any order.
 --
 
-SELECT patient_id, patient_name, conditions
+SELECT *
 FROM Patients
-WHERE conditions like '%DIAB1%'
+WHERE conditions like '% DIAB1%' or conditions like 'DIAB1%'
