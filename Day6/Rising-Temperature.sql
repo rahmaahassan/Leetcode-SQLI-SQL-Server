@@ -14,3 +14,7 @@ Write an SQL query to find all dates' Id with higher temperatures compared to it
 Return the result table in any order.
 */
 
+SELECT w.id
+FROM Weather w, Weather pw
+Where w.temperature > pw.temperature and 
+      pw.recordDate = DATEADD(day, -1, w.recordDate)
