@@ -27,5 +27,5 @@ Return the result table ordered by travelled_distance in descending order, if tw
 SELECT u.name, ISNULL(SUM(r.distance), 0) travelled_distance
 FROM Users u LEFT JOIN Rides r
 ON u.id = r.user_id 
-GROUP BY u.name
+GROUP BY u.name, u.id
 ORDER BY SUM(r.distance) desc, u.name
