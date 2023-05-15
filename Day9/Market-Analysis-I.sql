@@ -36,3 +36,9 @@ item_id is the primary key of this table.
 Write an SQL query to find for each user, the join date and the number of orders they made as a buyer in 2019.
 Return the result table in any order.
 */
+
+SELECT u.user_id buyer_id, u.join_date, COALESCE(COUNT(o.order_id), 0) orders_in_2019
+FROM Orders o RIGHT JOIN Users u
+ON o.buyer_id = u.user_id
+AND YEAR(o.order_date) = 2019
+GROUP BY u.user_id, u.join_date
