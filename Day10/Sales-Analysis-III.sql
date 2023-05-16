@@ -28,3 +28,15 @@ Each row of this table contains some information about one sale.
 Write an SQL query that reports the products that were only sold in the first quarter of 2019. That is, between 2019-01-01 and 2019-03-31 inclusive.
 Return the result table in any order.
 */
+
+SELECT product_id, product_name
+FROM Product
+WHERE product_id in (SELECT product_id
+                     FROM Sales
+                     WHERE sale_date between '2019-01-01' 
+                     AND '2019-03-31' 
+                     EXCEPT 
+                     SELECT product_id 
+                     FROM Sales
+                     WHERE sale_date not between '2019-01-01' 
+                     AND '2019-03-31')
